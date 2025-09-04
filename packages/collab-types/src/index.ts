@@ -34,13 +34,14 @@ export interface DeleteOp {
     count: number;
 }
 
-export interface CollabMessage {
-    type: 'operation' | 'cursor' | 'user-join' | 'user-leave' | 'play-state';
-    sessionId: string;
-    userId: string;
-    data: any;
-    timestamp: number;
-}
+// May wrap all socket messages in this format later instead of directly using socket.io events
+// export interface CollabMessage {
+//     type: 'operation' | 'cursor' | 'user-join' | 'user-leave' | 'play-state';
+//     sessionId: string;
+//     userId: string;
+//     data: any;
+//     timestamp: number;
+// }
 
 export class OTEngine {
     static transform(op1: Operation[], op2: Operation[]): [Operation[], Operation[]] {

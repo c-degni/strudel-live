@@ -2,7 +2,7 @@ import { Server } from 'socket.io';
 import { createServer } from 'http';
 import express from 'express';
 import cors from 'cors';
-import { Session, User, CollabMessage, OTEngine, Operation, generateSessionId, generateUserId, generateUserColor } from '@strudel/collab-types';
+import { Session, User, OTEngine, Operation, generateSessionId, generateUserId, generateUserColor } from '@strudel/collab-types';
 
 interface ServerSession extends Omit<Session, 'users'> {
     users: Map<string, User>;
