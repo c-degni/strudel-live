@@ -1,0 +1,11 @@
+{
+  "name": "@strudel/collab-server",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@strudel/collab-types": "file:../collab-types",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  }
+}
