@@ -1,8 +1,11 @@
 {
   "name": "@strudel/collab-client",
-  "version": "1.0.0", 
+  "version": "1.0.0",
   "main": "dist/index.js",
   "dependencies": {
-    "@strudel/collab-types": "workspace:*"
+    "@codemirror/state": "^6.5.1",
+    "@codemirror/view": "^6.36.2",
+    "@strudel/collab-types": "workspace:*",
+    "socket.io-client": "^4.8.1"
   }
 }
