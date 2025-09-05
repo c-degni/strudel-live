@@ -457,6 +457,12 @@ importers:
 
   packages/repl:
     dependencies:
+      '@codemirror/state':
+        specifier: ^6.5.1
+        version: 6.5.2
+      '@codemirror/view':
+        specifier: ^6.36.2
+        version: 6.38.2
       '@strudel/codemirror':
         specifier: workspace:*
         version: link:../codemirror
