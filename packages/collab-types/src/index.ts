@@ -2,8 +2,8 @@ export interface User {
     id: string;
     name: string;
     color: string;
-    cursor: number;
-    selection: { from: number; to: number };
+    cursor?: number;
+    selection?: { from: number; to: number };
 }
 
 export interface Session {

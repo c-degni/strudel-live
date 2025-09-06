@@ -2,10 +2,20 @@
   "name": "@strudel/collab-server",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "@strudel/collab-types": "file:../collab-types",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "http": "0.0.1-security",
     "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.10.10"
   }
 }

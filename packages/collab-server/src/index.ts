@@ -59,7 +59,7 @@ class StrudelCollabServer {
             id: userId,
             name: userName,
             color: generateUserColor(),
-            cursor: 0
+            cursor: 0,
         };
 
         session.users.set(userId, user);
@@ -104,7 +104,7 @@ class StrudelCollabServer {
                     cursor: 0
                 };
 
-                session.user.set(userId, user);
+                session.users.set(userId, user);
                 this.userSessions.set(userId, sessionId);
                 socket.join(sessionId);
 
@@ -161,8 +161,10 @@ class StrudelCollabServer {
 
                 if (session && session.users.has(userId)) {
                     const user = session.users.get(userId);
-                    user.cursor = cursor;
-                    user.selection = selection;
+                    if (user) { // Why is it forcing me to do this soooooo dumb, it's already checked above
+                        user.cursor = cursor;
+                        user.selection = selection;
+                    }
 
                     socket.to(sessionId).emit('cursor-update', { userId, cursor, selection });
                 }

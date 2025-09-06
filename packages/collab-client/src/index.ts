@@ -1,4 +1,4 @@
-import { io, Socket } from 'socket.io-clent';
+import { io, Socket } from 'socket.io-client';
 import { EditorView } from '@codemirror/view';
 import { ChangeSet, Transaction } from '@codemirror/state';
 import { User, Operation, OTEngine, generateUserId } from '@strudel/collab-types'

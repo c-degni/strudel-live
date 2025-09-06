@@ -16,7 +16,9 @@
     "repl": "npm run prestart && cd website && npm run dev",
     "start": "npm run prestart && cd website && npm run dev",
     "dev": "npm run prestart && cd website && npm run dev",
+    "dev:collab": "concurrently \"cd packages/collab-server && node dist/index.js\" \"cd website && npm run dev\"",
     "build": "npm run prebuild && cd website && npm run build",
+    "build:collab": "cd packages/collab-types && pnpm run build && cd ../collab-client && pnpm run build && cd ../collab-server && pnpm run build",
     "preview": "cd website && npm run preview",
     "osc": "cd packages/osc && npm run server",
     "jsdoc": "jsdoc packages/ -c jsdoc/jsdoc.config.json",
@@ -47,12 +49,20 @@
   },
   "homepage": "https://strudel.cc",
   "dependencies": {
+    "@codemirror/basic-setup": "^0.20.0",
+    "@codemirror/state": "^6.5.1",
+    "@codemirror/view": "^6.36.2",
+    "@strudel/codemirror": "workspace:^",
+    "@strudel/collab-client": "workspace:*",
+    "@strudel/collab-types": "workspace:*",
     "@strudel/core": "workspace:*",
     "@strudel/mini": "workspace:*",
+    "@strudel/repl": "workspace:*",
     "@strudel/tonal": "workspace:*",
     "@strudel/transpiler": "workspace:*",
     "@strudel/webaudio": "workspace:*",
-    "@strudel/xen": "workspace:*"
+    "@strudel/xen": "workspace:*",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.5",
@@ -62,6 +72,7 @@
     "@vitest/coverage-v8": "3.0.4",
     "@vitest/ui": "^3.0.4",
     "acorn": "^8.14.0",
+    "concurrently": "^9.2.1",
     "dependency-tree": "^11.0.1",
     "eslint": "^9.19.0",
     "eslint-plugin-import": "^2.31.0",
@@ -71,7 +82,8 @@
     "jsdoc-json": "^2.0.2",
     "lerna": "^8.1.9",
     "prettier": "^3.4.2",
-    "vitest": "^3.0.4",
-    "vite-plugin-bundle-audioworklet": "workspace:*"
+    "typescript": "^5.9.2",
+    "vite-plugin-bundle-audioworklet": "workspace:*",
+    "vitest": "^3.0.4"
   }
 }
