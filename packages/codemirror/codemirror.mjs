@@ -24,6 +24,8 @@ import { initTheme, activateTheme, theme } from './themes.mjs';
 import { sliderPlugin, updateSliderWidgets } from './slider.mjs';
 import { widgetPlugin, updateWidgets } from './widget.mjs';
 import { persistentAtom } from '@nanostores/persistent';
+import { StrudelCollabClient } from '@strudel/collab-client';
+import { collabEditingPlugin } from '../repl/collab/CollabEditor.ts';
 
 const extensions = {
   isLineWrappingEnabled: (on) => (on ? EditorView.lineWrapping : []),
@@ -157,6 +159,20 @@ export class StrudelMirror {
     this.id = id || s4();
     this.solo = solo;
 
+    this.collabClient = new StrudelCollabClient();
+    this.collabClient.events = {
+      onDocumentChanged: (document, operations) => {
+        this.collabClient.applyOperations(operations);
+      },
+      onPlayStateChanged: (isPlaying) => {
+        if (isPlaying) {
+          this.editor.contentDOM.classList.add('playing-locked');
+        } else {
+          this.editor.contentDOM.classList.remove('playing-locked');
+        }
+      }
+    };
+
     this.drawer = new Drawer((haps, time, _, painters) => {
       const currentFrame = haps.filter((hap) => hap.isActive(time));
       this.highlight(currentFrame, time);
@@ -211,10 +227,12 @@ export class StrudelMirror {
     this.editor = initEditor({
       root,
       initialCode,
+      extensions: [collabEditingPlugin(this.collabClient)],
       onChange: (v) => {
         if (v.docChanged) {
           this.code = v.state.doc.toString();
           this.repl.setCode?.(this.code);
+          this.collabClient.sendOperation(v.changes, this.code);
         }
       },
       onEvaluate: () => this.evaluate(),

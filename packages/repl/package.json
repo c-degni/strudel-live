@@ -36,6 +36,8 @@
     "@codemirror/state": "^6.5.1",
     "@codemirror/view": "^6.36.2",
     "@strudel/codemirror": "workspace:*",
+    "@strudel/collab-client": "workspace:*",
+    "@strudel/collab-types": "workspace:*",
     "@strudel/core": "workspace:*",
     "@strudel/draw": "workspace:*",
     "@strudel/hydra": "workspace:*",
@@ -44,7 +46,8 @@
     "@strudel/soundfonts": "workspace:*",
     "@strudel/tonal": "workspace:*",
     "@strudel/transpiler": "workspace:*",
-    "@strudel/webaudio": "workspace:*"
+    "@strudel/webaudio": "workspace:*",
+    "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
     "@rollup/plugin-replace": "^6.0.2",

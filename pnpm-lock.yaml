@@ -513,6 +513,12 @@ importers:
       '@strudel/codemirror':
         specifier: workspace:*
         version: link:../codemirror
+      '@strudel/collab-client':
+        specifier: workspace:*
+        version: link:../collab-client
+      '@strudel/collab-types':
+        specifier: workspace:*
+        version: link:../collab-types
       '@strudel/core':
         specifier: workspace:*
         version: link:../core
@@ -540,6 +546,12 @@ importers:
       '@strudel/webaudio':
         specifier: workspace:*
         version: link:../webaudio
+      socket-io:
+        specifier: ^1.0.0
+        version: 1.0.0
+      socket.io-client:
+        specifier: ^4.8.1
+        version: 4.8.1
     devDependencies:
       '@rollup/plugin-replace':
         specifier: ^6.0.2
@@ -13043,6 +13055,11 @@ packages:
   /smol-toml@1.4.2:
     resolution: {integrity: sha512-rInDH6lCNiEyn3+hH8KVGFdbjc099j47+OSgbMrfDYX1CmXLfdKd7qi6IfcWj2wFxvSVkuI46M+wPGYfEOEj6g==}
     engines: {node: '>= 18'}
+
+  /socket-io@1.0.0:
+    resolution: {integrity: sha512-a+3SeSnMr6wdhiv0llX1Sv1GzWIJ8aa0P65N/9Ytlu43B5QRwgDiG0U1pRLB1YhvOmV4emimc6KTfmWSGIUSwg==}
+    deprecated: Package unsupported. Please use the socket.io package instead.
+    dev: false
 
   /socket.io-adapter@2.5.5:
     resolution: {integrity: sha512-eLDQas5dzPgOWCk9GuuJC2lBqItuhKI4uxGgo9aIV7MYbk2h9Q6uULEh8WBzThoI7l+qU9Ast9fVUmkqPP9wYg==}
